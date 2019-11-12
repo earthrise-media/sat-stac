@@ -76,7 +76,7 @@ class Catalog(Thing):
         root_links = self.links('root')
         root_link = root_links[0] if len(root_links) > 0 else self.filename
         root_path = os.path.dirname(root_link)
-        self.add_link('child', child_link)
+        self.add_link('child', child_link, title=catalog._data['title'])
         self.save()
         # strip self, parent, child links from catalog and add new links
         catalog.clean_hierarchy()
